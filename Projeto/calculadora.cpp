@@ -26,7 +26,7 @@ int main(void)
   // loop de escolha do tipo de conversão
   while(valida){
     opcao = escolhe_opcao();
-    std::cout << " Opcao escolhida: " << opcao << std::endl;
+    std::cout << " Opção escolhida: " << opcao << std::endl;
     switch (opcao) {
       case 1:
         converte_decbin();
