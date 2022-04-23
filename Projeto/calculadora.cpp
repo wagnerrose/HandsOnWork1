@@ -15,7 +15,7 @@ using std::numeric_limits;
 
 // definições de variaveis e funções
 void converte_decbin(void);
-
+void converte_bindec(void);
 
 int main(void)
 {
@@ -30,6 +30,9 @@ int main(void)
     switch (opcao) {
       case 1:
         converte_decbin();
+        break;
+      case 2:
+        converte_bin_dec();
         break;
       default:
         std::cout << "===  Você selecionou sair do programa." << std::endl;
@@ -102,6 +105,17 @@ void converte_decbin(void){
   std::cout << binario << std::endl;
 }
 
+converte_bindec(void){
+
+  string valor;
+  int le_valor_bin(void);
+
+  valor = le_valor_bin();
+  std::cout << "\n Valor binário: " << valor << std::endl;
+  decimal = to_dec(valor);
+  std::cout << "Valor decimal: " << decimal << std::endl;
+}
+
 int le_valor_dec(void)
 {
   bool valido = true;
@@ -117,6 +131,37 @@ int le_valor_dec(void)
         valido2 = false;
       } else {
         std::cout << "== Você deve escolher um número válido!" << std::endl;
+        std::cin.clear(); // limpa as flags de erro do cin
+        std::cin.ignore(numeric_limits<std::streamsize>::max(), '\n');  // ignora tudo até o \n - limpa o buffer
+      }
+      std::cout << std::endl;
+    }
+    if (valor <= 0) {
+      std::cout << "\n===   O valor decimal deve ser maior q 0." << std::endl;
+      std::cout << "===  Informe novo valor" << std::endl;
+    }
+    else {
+      valido = false;
+    }
+  }
+  return valor;
+}
+
+string le_valor_bin() {
+
+  bool valido = true;
+  bool valido2;
+  string valor;
+
+  while(valido) {
+    valido2 = true;
+    while(valido2){
+      std::cout << std::endl << "Informe o Valor decimal a converter: ";
+      // testa se foi digitado um valor válido(número_)
+      if (std::cin >> valor) {
+        valido2 = false;
+      } else {
+        std::cout << "== Você deve digitar um número binário ('0' ou '1')" << std::endl;
         std::cin.clear(); // limpa as flags de erro do cin
         std::cin.ignore(numeric_limits<std::streamsize>::max(), '\n');  // ignora tudo até o \n - limpa o buffer
       }
