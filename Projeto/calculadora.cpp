@@ -105,15 +105,28 @@ void converte_decbin(void){
 int le_valor_dec(void)
 {
   bool valido = true;
+  bool valido2;
   int valor;
 
-  while(valido){
-    std::cout << std::endl << "Informe o Valor decimal a converter: ";
-    std::cin >> valor;
+  while(valido) {
+    valido2 = true;
+    while(valido2){
+      std::cout << std::endl << "Informe o Valor decimal a converter: ";
+      // testa se foi digitado um valor válido(número_)
+      if (std::cin >> valor) {
+        valido2 = false;
+      } else {
+        std::cout << "== Você deve escolher um número válido!" << std::endl;
+        std::cin.clear(); // limpa as flags de erro do cin
+        std::cin.ignore(numeric_limits<std::streamsize>::max(), '\n');  // ignora tudo até o \n - limpa o buffer
+      }
+      std::cout << std::endl;
+    }
     if (valor <= 0) {
       std::cout << "\n===   O valor decimal deve ser maior q 0." << std::endl;
       std::cout << "===  Informe novo valor" << std::endl;
-    } else {
+    }
+    else {
       valido = false;
     }
   }
