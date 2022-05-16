@@ -1,3 +1,0 @@
-/usr/bin/ld: /tmp/ccThooTe.o: na função "bool std::__constant_string_p<char>(char const*)":
-/usr/include/c++/11/bits/regex_compiler.tcc:183: múltiplas definições de "main"; /tmp/ccfbsA7U.o:/home/wagner/Documentos/Desenvolvimento/HandsOnWork1/Projeto/calculadora.cpp:24: definido primeiro aqui
-collect2: error: ld returned 1 exit status
